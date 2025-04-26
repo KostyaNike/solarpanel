@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarMaster - Сонячні панелі</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .contact-info {
+            color: #007bff;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .contact-info a {
+
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info img {
+            width: 24px;
+            height: 24px;
+        }
+        .contact-info p {
+            margin: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-up-btn {
+            position: fixed;
+            bottom: 20px;  /* Отступ от нижнего края */
+            right: 20px;   /* Отступ от правого края */
+            background: #117ce7;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        .contact-up-btn:hover {
+            background: #34495e;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="parallax">
+        <div class="overlay">
+            <div class="container">
+                <h1 class="title">
+                    <svg height="100" width="1000" stroke="#fff" stroke-width="2" class="text-line">
+                        <text style="font-family: 'Andale Mono', georgia, times, serif; font-weight: normal; font-style: normal" x="50" y="90" fill="none" font-size = "100">SolarMaster</text>
+                    </svg>
+                </h1>
+                <h3 class="line-1 anim-typewriter">Встановлення сонячних панелей для вашого будинку та бізнесу</h3>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-mobile">
+        <img src="/media/products/solar2.jpg" alt="SolarMaster" style="width: 100%; height: auto; object-fit: cover;">
+        <div class="header-text">
+            <h1>SolarMaster</h1>
+            <p>Встановлення сонячних панелей для вашого будинку та бізнесу</p>
+        </div>
+    </div>
+
+    <a href="#about" class="btn-more-info" id="moreInfoBtn">Більше інформації</a>
+
+    <section id="contact" style="margin-top: 300px; background: linear-gradient(135deg, #f0f4f8, #d9e2ec); padding: 60px 20px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 90%; margin-left: auto; margin-right: auto;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 36px; color: #2c3e50; margin-bottom: 20px;">Контакти</h2>
+            <p style="font-size: 18px; color: #555; margin-bottom: 40px;">Зв'яжіться з нами в соц. месенджерах або подзвоніть нам та скажіть, що бажаєте!</p>
+            
+            <div class="contact-info" style="display: flex; flex-direction: column; gap: 30px; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <a href="https://t.me/Dragi13" target="_blank" class="contact-icon" style="font-size: 30px; color: #0088cc; transition: transform 0.3s;">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="tel:+380674331360" style="font-size: 20px; color: #2c3e50; text-decoration: none;">+380 (67) 433 13 60</a>
+                </div>
+    
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <a href="viber://chat?number=%2B380934483219" target="_blank" class="contact-icon" style="font-size: 30px; color: #7360f2; transition: transform 0.3s;">
+                        <i class="fab fa-viber"></i>
+                    </a>
+                    <a href="tel:+380934483219" style="font-size: 20px; color: #2c3e50; text-decoration: none;">+380 (93) 448 32 19</a>
+                </div>
+            </div>
+    
+            <a href="#contact" class="contact-up-btn">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </section>
+
+    <a href="#about" class="btn-more-info" id="moreInfoBtn">Про нас</a>
+
+    <main>
+        <section id="about" style="position: relative; margin-top: 100px;">
+            <div style="position: relative; width: 100%; height: 400px; display: flex; justify-content: center; align-items: center;">
+                <!-- Левая картинка -->
+                <img src="/media/products/solar17.jpg" alt="Про нас" style="width: 48%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-right: 1%;">
+        
+                <!-- Правая картинка -->
+                <img src="/media/products/solar18.jpg" alt="Про нас справа" style="width: 48%; height: 100%; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); margin-left: 1%;">
+                
+                <!-- Блок с текстом -->
+                <div style="position: absolute; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 2; max-width: 600px;">
+                    <h2 style="color: #333; text-align: center;">Про нас</h2>
+                    <p style="color: #555; text-align: center;">Ми спеціалізуємося на проектуванні та встановленні сонячних панелей. Допомагаємо скоротити витрати на електрику і зробити ваш будинок або бізнес більш екологічним.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="services">
+            <div class="container">
+                <h2>Наші послуги</h2>
+                <div class="service-cards">
+                    <div class="card">
+                        <h3>Встановлення</h3>
+                        <p><b>Професійне встановлення сонячних панелей на дахи будь-яких будівель.</b></p>
+                    </div>
+                    <div class="card">
+                        <h3>Консультація</h3>
+                        <p><b>Ми допоможемо підібрати ідеальне рішення для вашого об'єкту.</b></p>
+                    </div>
+                    <div class="card">
+                        <h3>Технічна підтримка</h3>
+                        <p><b>Забезпечуємо обслуговування та ремонт сонячних систем.</b></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="#about" class="btn-more-info" id="contactInfo">Зв'язок з нами</a>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Наші роботи</h2>
+            <div class="gallery-wrapper">
+                <button class="gallery-btn left" id="prevBtn">&#10094;</button>
+                <div class="gallery">
+                    {% for file in file_urls %}
+                        {% if "solar_master" not in file %}
+                            <img class="gallery-item" src="{{ file }}" alt="Сонячні панелі">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <button class="gallery-btn right" id="nextBtn">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="fromukraine">
+        <div class="container">
+            <div class="flag-container">
+                <p class="flag-text">Працюємо по всій Київській області та за її межами</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SolarMaster. Усі права захищені.</p>
+        </div>
+    </footer>
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > lastScrollTop) {
+            // Прокрутка вниз
+            header.style.top = "-300px"; // Скрыть хедер (по высоте)
+        } else if (currentScroll === 0) {
+            // Прокрутка на самый верх
+            header.style.top = "0"; // Показать хедер
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Для предотвращения отрицательного значения
+    });
+
+    // прокрутка галереи 👎
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        const gallery = document.querySelector('.gallery');
+        gallery.scrollBy({ left: gallery.offsetWidth / 2, behavior: 'smooth' });
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', function() {
+        const gallery = document.querySelector('.gallery');
+        gallery.scrollBy({ left: -gallery.offsetWidth / 2, behavior: 'smooth' });
+    });
+
+    document.getElementById('moreInfoBtn').addEventListener('click', function(event) {
+        event.preventDefault();  // Отключаем стандартное поведение ссылки
+        window.scrollBy({
+            top: 700,  // Прокручиваем на 500px вниз (можно изменить)
+            behavior: 'smooth'
+        });
+    });
+
+    document.getElementById('contactInfo').addEventListener('click', function(event) {
+        event.preventDefault();  // Отключаем стандартное поведение ссылки
+        window.scrollBy({
+            top: -1600,  // Прокручиваем на 500px вниз (можно изменить)
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</body>
+</html>
