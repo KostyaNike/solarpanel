@@ -847,3 +847,32 @@ html {
     border-radius: 10px;
     animation: fadeIn 3s ease-in-out;
 }
+
+.form-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0; /* отступы сверху и снизу */
+}
+
+.form-big-btn {
+  display: block;
+  width: 90%;             /* почти на всю ширину */
+  max-width: 800px;       /* ограничение, чтобы не растягивалась на больших экранах */
+  background-color: #ff4e50;
+  color: #fff;
+  padding: 18px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.form-big-btn:hover {
+  background-color: #f9d423;
+  color: #000;
+  transform: translateY(-2px);
+}

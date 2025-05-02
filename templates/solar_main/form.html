@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Форма запиту{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+<div class="form-container">
+    <h2>Будь ласка, заповніть форму</h2>
+
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <div class="form-info-box">
+        <h3>ℹ️ Інструкція</h3>
+        <p>Ви можете надіслати форму лише один раз на годину, щоб уникнути дублювань. Якщо вже надсилали, будь ласка, зачекайте трохи перед повторною відправкою.</p>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="full-name">Ваше ім'я та прізвище</label>
+            <input type="text" id="full-name" name="full_name" placeholder="Введіть ваше ім'я та прізвище" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone-number">Ваш номер телефону</label>
+            <div class="phone-input-wrapper">
+                <span class="phone-prefix">+380</span>
+                <input type="tel" id="phone-number" name="phone_number" pattern="[0-9]{9}" maxlength="9"
+                    placeholder="___ ___ ___" required>
+            </div>
+            <small class="hint">Введіть лише 9 цифр без +380</small>
+        </div>
+
+        <div class="form-group">
+            <label for="city">Ваше місто</label>
+            <input type="text" id="city" name="city" placeholder="Введіть ваше місто" autocomplete="off" required>
+            <ul id="city-suggestions" class="suggestions"></ul>
+        </div>
+
+        <div class="form-group">
+            <textarea name="user_request" placeholder="Напишіть тут вашу потребу або запит..." required></textarea>
+        </div>
+
+        <div class="form-buttons">
+            <a href="/home/" class="back-btn">На головну</a>
+            <button type="submit" class="submit-btn">Надіслати</button>
+        </div>
+    </form>
+</div>
+
+<!-- JS для автопідказки з локального JSON -->
+<script>
+    const allCities = [
+        "Київ", "Харків", "Одеса", "Дніпро", "Запоріжжя", "Львів", "Кривий Ріг", "Миколаїв", "Маріуполь", "Луганськ",
+        "Вінниця", "Макіївка", "Севастополь", "Херсон", "Полтава", "Чернігів", "Черкаси", "Житомир", "Суми", "Хмельницький",
+        "Чернівці", "Горлівка", "Рівне", "Краматорськ", "Івано-Франківськ", "Тернопіль", "Біла Церква", "Кременчук", "Ужгород", "Бердянськ",
+        "Павлоград", "Мелітополь", "Сєвєродонецьк", "Слов’янськ", "Нікополь", "Бровари", "Алчевськ", "Євпаторія", "Кам’янське", "Конотоп",
+        "Ізмаїл", "Мукачево", "Лисичанськ", "Умань", "Ялта", "Бахмут", "Дрогобич", "Стрий", "Червоноград", "Шостка",
+        "Новомосковськ", "Коростень", "Коломия", "Нетішин", "Первомайськ", "Старобільськ", "Ніжин", "Фастів", "Лубни", "Ковель",
+        "Енергодар", "Калуш", "Дубно", "Вознесенськ", "Кам’янець-Подільський", "Прилуки", "Бориспіль", "Обухів", "Чугуїв", "Знам’янка",
+        "Жовті Води", "Антрацит", "Боярка", "Щастя", "Нововолинськ", "Сміла", "Хуст", "Токмак", "Каховка", "Сарни",
+        "Лозова", "Гайсин", "Звягель", "Рубіжне", "Миргород", "Трускавець", "Ладижин", "Куп’янськ", "Борзна", "Скадовськ",
+        "Канів", "Яворів", "Васильків", "Красноград", "Берегове", "Свалява", "Буча", "Генічеськ", "Добропілля", "Тетіїв", "Бишів", 'Ірпінь', "Гостомель",
+        "Макарів", "Сквира", "Козин", "Козятин"
+    ];
+
+    const input = document.getElementById('city');
+    const suggestions = document.getElementById('city-suggestions');
+
+    input.addEventListener('input', function () {
+        const value = this.value.trim().toLowerCase();
+        suggestions.innerHTML = '';
+
+        if (value.length < 1) return;
+
+        const filtered = allCities.filter(city =>
+            city.toLowerCase().startsWith(value)
+        );
+
+        filtered.forEach(city => {
+            const li = document.createElement('li');
+            li.textContent = city;
+            li.addEventListener('click', () => {
+                input.value = city;
+                suggestions.innerHTML = '';
+            });
+            suggestions.appendChild(li);
+        });
+    });
+
+    document.addEventListener('click', function (e) {
+        if (e.target !== input) suggestions.innerHTML = '';
+    });
+
+    document.querySelector('form').addEventListener('submit', function (e) {
+        const phone = document.getElementById('phone-number').value;
+        if (!/^\d{9}$/.test(phone)) {
+            alert('Номер телефону має містити рівно 9 цифр після +380.');
+            e.preventDefault();
+        }
+    });
+</script>
+
+<style>
+    .suggestions {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        max-height: 150px;
+        overflow-y: auto;
+        position: absolute;
+        background: white;
+        width: calc(100% - 40px);
+        z-index: 1000;
+    }
+
+    .suggestions li {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .suggestions li:hover {
+        background-color: #f0f0f0;
+    }
+
+    .form-group {
+        position: relative;
+    }
+</style>
+{% endblock %}
