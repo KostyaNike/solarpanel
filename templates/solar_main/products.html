@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SolarMaster - Продукція{% endblock %}
+
+{% block head_extra %}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8617907242786175"
+        crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<a href="/" class="back-button">← Назад</a>
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+    <h1 class="title">Solar Ocean N-Type</h1>
+    <div class="product-row">
+        {% for panel in products %}
+            <div class="panel">
+                <div class="image-wrapper">
+                    <img src="/media/products/n-type_w.png" alt="{{ panel.title }}">
+                    <div class="price-tag">${{ panel.price|floatformat:2 }}</div>
+                    <div class="availability">Наявність</div>
+                </div>
+                <div class="description">
+                    <h2>{{ panel.title }}</h2>
+                    <p>Гарантія на лінійну потужність 30 років</p>
+                    <p><strong>Потужність:</strong> {{ panel.power }}</p>
+                    <p><strong>Розміри:</strong> {{ panel.size }}</p>
+                    <p><strong>Вага:</strong> {{ panel.weight }}</p>
+                    <p><strong>Вологозахист:</strong> IP68</p>
+                    <a href="#" class="btn">Докладніше</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

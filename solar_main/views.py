@@ -67,3 +67,36 @@ def form_page(request):
         return render(request, 'solar_main/form.html', {"message": message})
 
     return render(request, 'solar_main/form.html')
+
+def products_page(request):
+    products = [
+        {
+            "title": "HS435TC-MHO-D",
+            "price": 60.00,
+            "power": "435 W",
+            "size": "1722×1134×30 mm",
+            "weight": "24 kg"
+        },
+        {
+            "title": "HS450TC-MHC-D",
+            "price": 64.00,
+            "power": "450 W",
+            "size": "1762×1134×30 mm",
+            "weight": "24.5 kg"
+        },
+        {
+            "title": "HS580TC-MHO-D",
+            "price": 78.00,
+            "power": "580 W",
+            "size": "2279×1134×30 mm",
+            "weight": "31.5 kg"
+        },
+        {
+            "title": "HS620TC-MHC-D",
+            "price": 83.00,
+            "power": "620 W",
+            "size": "2382×1134×30 mm",
+            "weight": "33.7 kg"
+        }
+    ]
+    return render(request, 'solar_main/products.html', {'products': products})

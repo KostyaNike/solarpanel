@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+%hf)^8*qvc9sclzv$uao&($9#oz704t225!hu^g%=)9ef_@)i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.68.101', 'localhost', '127.0.0.1', 'dono-03.danbot.host', "solarmaster.com.ua", "www.solarmaster.com.ua"]
+ALLOWED_HOSTS = ['192.168.68.101', '192.168.68.109', 'localhost', '127.0.0.1', 'dono-03.danbot.host', "solarmaster.com.ua", "www.solarmaster.com.ua"]
 
 
 # Application definition
