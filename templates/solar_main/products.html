@@ -32,12 +32,4 @@
             </div>
         {% endfor %}
     </div>
-
-<script>
-    document.addEventListener("scroll", function () {
-        const scrollY = window.scrollY;
-        const offset = Math.min(scrollY * 0.2, 100); // ограничим сдвиг вниз максимумом
-        document.body.style.backgroundPosition = `center ${-50 + offset}px`;
-    });
-</script>
 {% endblock %}

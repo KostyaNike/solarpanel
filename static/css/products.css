@@ -1,15 +1,13 @@
 body {
-    background-image: url('/media/products/banner.jpg');
-    background-repeat: no-repeat;
-    background-size: 250% auto; /* увеличенный фон по ширине */
-    background-attachment: fixed;
+    background: url('/media/products/banner.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* Делает фон фиксированным */
     font-family: Arial, sans-serif;
     color: #000;
     padding: 20px;
     margin: 0;
     transition: background-position 0.2s ease-out;
 }
-
 
 .title {
     color: white;
