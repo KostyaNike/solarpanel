@@ -167,7 +167,7 @@
                 <button class="gallery-btn left" id="prevBtn">&#10094;</button>
                 <div class="gallery">
                     {% for file in file_urls %}
-                        {% if not "solar_master" in file and not "n-type_w" in file and not "solar-ocean_w" in file and not "n-type_w_o7WgrWe" in file and not "n-type_w_TFbl4dN" in file and not "n-type_w_kLPmYg3" in file and not "n-type_w_dIr7qj0" in file %}
+                        {% if not "solar_master" in file and not "n-type_w" in file and not "solar-ocean_w" in file and not "n-type_w_o7WgrWe" in file and not "n-type_w_TFbl4dN" in file and not "n-type_w_kLPmYg3" in file and not "banner"%}
                             <img class="gallery-item" src="{{ file }}" alt="Сонячні панелі">
                         {% endif %}
                     {% endfor %}
