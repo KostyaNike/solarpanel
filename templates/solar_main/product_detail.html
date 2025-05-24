@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ panel.title }} - SolarMaster{% endblock %}
+
+{% block head_extra %}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8617907242786175"
+        crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+<a href="{% url 'products' %}" class="back-button">← Назад</a>
+
+<h1 class="title">Solar Ocean N-Type</h1>
+
+<div class="product-detail">
+    <div class="image-container">
+        <img src="/media/products/n-type_w.jpg" alt="{{ panel.title }}">
+        <div class="price-tag">${{ panel.price|floatformat:2 }}</div>
+        <div class="availability">Наявність</div>
+    </div>
+    <div class="info">
+        <p class="model-name"><strong>{{ panel.title }}</strong></p>
+        <p><strong>Гарантія:</strong> 30 років</p>
+        <p><strong>Потужність:</strong> {{ panel.power }}</p>
+        <p><strong>Розміри:</strong> {{ panel.size }}</p>
+        <p><strong>Вага:</strong> {{ panel.weight }}</p>
+        <p><strong>Вологозахист:</strong> IP68</p>
+        <p>{{ panel.description }}</p>
+    </div>
+    
+    <div class="actions full-width">
+        <a href="/home/form" class="btn red">Залишити заявку</a>
+        <a href="javascript:void(0);" class="btn outlined scroll-to-info">
+            <span class="arrow">↓</span> Більше інформації
+        </a>
+    </div>
+</div>
+
+<div class="extra-info" id="extra-info">
+    <h2>Опис</h2>
+    <p>{{ panel.full_description|linebreaks }}</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollBtn = document.querySelector(".scroll-to-info");
+        const targetBlock = document.getElementById("extra-info");
+
+        if (scrollBtn && targetBlock) {
+            scrollBtn.addEventListener("click", function () {
+                const offset = 80; // отступ от верха (подкорректируй при необходимости)
+                const targetPosition = targetBlock.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: "smooth"
+                });
+            });
+        }
+    });
+</script>
+{% endblock %}

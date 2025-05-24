@@ -16,7 +16,7 @@
         {% for panel in products %}
             <div class="panel">
                 <div class="image-wrapper">
-                    <img src="/media/products/n-type_w.png" alt="{{ panel.title }}">
+                    <img src="/media/products/n-type_w.jpg" alt="{{ panel.title }}">
                     <div class="price-tag">${{ panel.price|floatformat:2 }}</div>
                     <div class="availability">Наявність</div>
                 </div>
@@ -27,9 +27,17 @@
                     <p><strong>Розміри:</strong> {{ panel.size }}</p>
                     <p><strong>Вага:</strong> {{ panel.weight }}</p>
                     <p><strong>Вологозахист:</strong> IP68</p>
-                    <a href="#" class="btn">Докладніше</a>
+                    <a href="{% url 'product_detail' panel.id %}" class="btn">Докладніше</a>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+<script>
+    document.addEventListener("scroll", function () {
+        const scrollY = window.scrollY;
+        const offset = Math.min(scrollY * 0.2, 100); // ограничим сдвиг вниз максимумом
+        document.body.style.backgroundPosition = `center ${-50 + offset}px`;
+    });
+</script>
 {% endblock %}

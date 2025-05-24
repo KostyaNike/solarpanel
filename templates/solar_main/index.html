@@ -130,37 +130,35 @@
         </section>
     </main>
 
-    <section id="product-offer" style="margin: 10px 0; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 40px; position: relative;">
+    <section id="product-offer" style="margin: 60px 0;">
+        <div class="offer-container">
+            <!-- Изображения -->
+            <div class="image-wrapper">
+                <!-- Левый дубликат -->
+                <img src="/media/products/solar-ocean_w.png" alt="Solar Ocean left" class="duplicate left">
 
-        <!-- Изображения -->
-        <div style="position: relative; display: flex; align-items: center; justify-content: center; width: auto;">
-            <!-- Левый дубликат -->
-            <img src="/media/products/solar-ocean_w.png" alt="Solar Ocean left"
-                style="position: absolute; left: -90px; top: -20px; max-width: 140px; opacity: 0.15; pointer-events: none;">
+                <!-- Основное изображение с прозрачным фоном -->
+                <img src="/media/products/solar-ocean_w.png" alt="Solar Ocean main" class="main-img">
 
-            <!-- Основное изображение -->
-            <img src="/media/products/solar-ocean_w.png" alt="Solar Ocean main"
-                style="max-width: 300px; height: auto; box-shadow: 0 4px 14px rgba(0,0,0,0.4); z-index: 1;">
+                <!-- Правый дубликат -->
+                <img src="/media/products/solar-ocean_w.png" alt="Solar Ocean right" class="duplicate right">
+            </div>
 
-            <!-- Правый дубликат -->
-            <img src="/media/products/solar-ocean_w.png" alt="Solar Ocean right"
-                style="position: absolute; right: -90px; margin-top: 190px; top: 0; max-width: 140px; opacity: 0.15; pointer-events: none;">
+            <!-- Текстовый блок -->
+            <div class="text-block">
+                <h2>Ви також можете замовити у нас...</h2>
+                <p>Маємо в наявності фотоелектричні панелі з наступними потужностями:</p>
+                <ul>
+                    <li>• 435 W</li>
+                    <li>• 450 W</li>
+                    <li>• 580 W</li>
+                    <li>• 620 W</li>
+                </ul>
+                <a href="/products/" class="btn">Показати більше</a>
+            </div>
         </div>
-
-        <!-- Текстовый блок -->
-        <div style="max-width: 350px; background: #fff; padding: 25px 30px; border-radius: 10px; box-shadow: 0 6px 14px rgba(0,0,0,0.12); margin-left: 70px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <h2 style="color: #333; font-size: 20px; margin-bottom: 15px;">Ви також можете замовити у нас...</h2>
-            <p style="color: #555; font-size: 16px; margin-bottom: 15px;">Маємо в наявності фотоелектричні панелі з наступними потужностями:</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 16px; color: #333;">
-                <li>• 435 W</li>
-                <li>• 450 W</li>
-                <li>• 580 W</li>
-                <li>• 620 W</li>
-            </ul>
-            <a href="/products/" class="btn" style="font-size: 16px; padding: 10px 22px;">Показати більше</a>
-        </div>
-
     </section>
+
 
     <section id="gallery">
         <div class="container">
@@ -169,7 +167,7 @@
                 <button class="gallery-btn left" id="prevBtn">&#10094;</button>
                 <div class="gallery">
                     {% for file in file_urls %}
-                        {% if "solar_master" not in file %}
+                        {% if not "solar_master" in file and not "n-type_w" in file and not "solar-ocean_w" in file and not "n-type_w_o7WgrWe" in file and not "n-type_w_TFbl4dN" in file and not "n-type_w_kLPmYg3" in file and not "n-type_w_dIr7qj0" in file %}
                             <img class="gallery-item" src="{{ file }}" alt="Сонячні панелі">
                         {% endif %}
                     {% endfor %}

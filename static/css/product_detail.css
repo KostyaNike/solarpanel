@@ -1,0 +1,219 @@
+body {
+    background: url('/media/products/banner.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #000;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 10px;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    border: 1px solid white;
+    transition: background 0.2s, color 0.2s;
+    z-index: 1000;
+}
+
+.product-detail {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: center; /* Центрируем вертикально содержимое */
+}
+
+.image-container {
+    width: 350px;
+    flex-shrink: 0;
+    position: relative;
+    text-align: center;
+}
+
+.image-container img {
+    height: 420px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.price-tag,
+.availability {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    color: orange;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.price-tag {
+    top: 30%;
+}
+
+.availability {
+    top: 65%;
+}
+
+.info {
+    flex: 1;
+    font-size: 14px;
+    color: #111;
+    line-height: 1.4;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем содержимое по вертикали */
+    height: 100%; /* чтобы flex сработал */
+}
+
+.info p {
+    margin: 6px 0;
+    text-align: left;
+}
+
+.model-name {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.actions {
+    margin-top: 10px; /* Сокращённый отступ сверху */
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.actions.full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+.actions .btn {
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.actions .btn:hover {
+    background: #ddd;
+}
+
+.actions .btn.red {
+    background: red;
+    color: white;
+    border: none;
+}
+
+.btn.outlined {
+    background: transparent;
+    border: 1px solid black;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.btn.outlined .arrow {
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+.btn.outlined:hover {
+    background: #eee;
+    border-color: #333;
+}
+
+.extra-info {
+    margin: 60px auto 30px;
+    max-width: 900px;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    min-height: 200px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.extra-info p strong {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #222;
+}
+
+.extra-info p strong + br {
+    display: none; /* если текст через linebreaks */
+}
+
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: row; /* ← сохраняем горизонтальное расположение */
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .image-container {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .info {
+        max-width: 100%;
+        text-align: left;
+        display: block;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-top: 15px;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .actions .btn {
+        padding: 8px 12px;
+    }
+}

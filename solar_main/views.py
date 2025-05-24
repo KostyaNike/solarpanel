@@ -8,6 +8,7 @@ import requests
 import time
 from django.utils.timezone import now
 from datetime import timedelta
+from .models import SolarPanel
 
 def index(request):
     media_path = os.path.join(settings.MEDIA_ROOT, 'products')
@@ -68,35 +69,56 @@ def form_page(request):
 
     return render(request, 'solar_main/form.html')
 
+PRODUCTS = [
+    {
+        "id": 1,
+        "title": "HS435TC-MHO-D",
+        "price": 60.00,
+        "power": "435 W",
+        "size": "1722×1134×30 mm",
+        "weight": "24 kg",
+        "description": "Сонячна панель HS435TC-MHO-D — це двосторонній модуль з високою ефективністю та довговічністю.",
+        "image": "products/hs435.jpg"
+    },
+    {
+        "id": 2,
+        "title": "HS450TC-MHC-D",
+        "price": 64.00,
+        "power": "450 W",
+        "size": "1762×1134×30 mm",
+        "weight": "24.5 kg",
+        "description": "Потужна модель з покращеними характеристиками для комерційного використання.",
+        "image": "products/hs450.jpg"
+    },
+    {
+        "id": 3,
+        "title": "HS580TC-MHO-D",
+        "price": 78.00,
+        "power": "580 W",
+        "size": "2279×1134×30 mm",
+        "weight": "31.5 kg",
+        "description": "Максимальна продуктивність з найвищою якістю матеріалів.",
+        "image": "products/hs580.jpg"
+    },
+    {
+        "id": 4,
+        "title": "HS620TC-MHC-D",
+        "price": 83.00,
+        "power": "620 W",
+        "size": "2382×1134×30 mm",
+        "weight": "33.7 kg",
+        "description": "Ідеальний вибір для великомасштабних проектів.",
+        "image": "products/hs620.jpg"
+    }
+]
+
 def products_page(request):
-    products = [
-        {
-            "title": "HS435TC-MHO-D",
-            "price": 60.00,
-            "power": "435 W",
-            "size": "1722×1134×30 mm",
-            "weight": "24 kg"
-        },
-        {
-            "title": "HS450TC-MHC-D",
-            "price": 64.00,
-            "power": "450 W",
-            "size": "1762×1134×30 mm",
-            "weight": "24.5 kg"
-        },
-        {
-            "title": "HS580TC-MHO-D",
-            "price": 78.00,
-            "power": "580 W",
-            "size": "2279×1134×30 mm",
-            "weight": "31.5 kg"
-        },
-        {
-            "title": "HS620TC-MHC-D",
-            "price": 83.00,
-            "power": "620 W",
-            "size": "2382×1134×30 mm",
-            "weight": "33.7 kg"
-        }
-    ]
+    products = SolarPanel.objects.all()
     return render(request, 'solar_main/products.html', {'products': products})
+
+def product_detail(request, product_id):
+    try:
+        panel = SolarPanel.objects.get(id=product_id)
+    except SolarPanel.DoesNotExist:
+        return render(request, '404.html', status=404)
+    return render(request, 'solar_main/product_detail.html', {'panel': panel})
