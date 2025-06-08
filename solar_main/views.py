@@ -122,3 +122,6 @@ def product_detail(request, product_id):
     except SolarPanel.DoesNotExist:
         return render(request, '404.html', status=404)
     return render(request, 'solar_main/product_detail.html', {'panel': panel})
+
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)

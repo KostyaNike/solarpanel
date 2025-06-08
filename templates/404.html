@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка не знайдена</title>
+    <link rel="stylesheet" href="{% static 'css/404.css' %}">
+</head>
+<body>
+    <div class="error-page">
+        <div class="container">
+            <h1 class="error-title">404</h1>
+            <p class="error-text">Сторінка не знайдена</p>
+            <p class="error-subtext">Вибачте, ми не можемо знайти таку сторінку.</p>
+            <a href="/" class="error-btn">На головну</a>
+        </div>
+    </div>
+</body>
+</html>

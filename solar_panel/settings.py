@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+%hf)^8*qvc9sclzv$uao&($9#oz704t225!hu^g%=)9ef_@)i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.68.101', '192.168.68.109', '192.168.68.103', 'localhost', '127.0.0.1', 'dono-03.danbot.host', "solarmaster.com.ua", "www.solarmaster.com.ua"]
+ALLOWED_HOSTS = ['192.168.68.100', '192.168.68.109', '192.168.68.103', 'localhost', '127.0.0.1', 'dono-03.danbot.host', "solarmaster.com.ua", "www.solarmaster.com.ua"]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,6 +124,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

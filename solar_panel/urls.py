@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from django.views.static import serve
 import os
 
+handler404 = 'solar_main.views.custom_404_view'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', include('solar_main.urls')),
@@ -29,4 +31,12 @@ urlpatterns = [
         'path': os.path.join(settings.BASE_DIR, 'static/ads.txt'),
         'document_root': '/',
     }),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+# Добавляем поддержку медиафайлов даже при DEBUG = False
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Явное правило для раздачи /media/ вручную
+urlpatterns += [
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+]

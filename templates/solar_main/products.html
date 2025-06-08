@@ -16,7 +16,8 @@
         {% for panel in products %}
             <div class="panel">
                 <div class="image-wrapper">
-                    <img src="/media/products/n-type_w.jpg" alt="{{ panel.title }}">
+                    <!-- <img src="/media/products/n-type_w.jpg" alt="{{ panel.title }}"> -->
+                    <img src="{{ panel.image.url }}" alt="{{ panel.title }}">
                     <div class="price-tag">${{ panel.price|floatformat:2 }}</div>
                     <div class="availability">Наявність</div>
                 </div>

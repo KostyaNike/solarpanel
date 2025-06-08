@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Andale Mono', monospace;
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.error-page .container {
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.error-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.error-text {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #f9f9f9;
+}
+
+.error-btn {
+    background-color: #ffffff;
+    color: #ff4e50;
+    padding: 12px 24px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.error-btn:hover {
+    background-color: #ff4e50;
+    color: #fff;
+}
