@@ -592,15 +592,18 @@ html {
   
   /* Animation */
   .anim-typewriter {
-    animation: typewriter 4s steps(48) 1s 1 normal both,
-      blinkTextCursor 500ms steps(48) infinite normal;
+    animation: typewriter 4s steps(59) 1s 1 normal both,
+      blinkTextCursor 500ms steps(59) infinite normal;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid rgba(255,255,255,0.75); /* если нужен курсор */
   }
   @keyframes typewriter {
     from {
       width: 0;
     }
     to {
-      width: 33em;
+      width: 59ch;
     }
   }
   @keyframes blinkTextCursor {
